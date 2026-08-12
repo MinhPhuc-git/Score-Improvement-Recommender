@@ -1,0 +1,10 @@
+{% extends "predictapp/base.html" %}
+
+{% block title %}Dataset — Score Advisor{% endblock %}
+
+{% block content %}
+<h2>📋 Dataset Hiện Tại</h2>
+<div class="table-container">
+    {{ table|safe }}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "predictapp/base.html" %}
+
+{% block title %}Trang chủ — Score Advisor{% endblock %}
+
+{% block content %}
+<h2>Hệ Thống Gợi Ý Cải Thiện Điểm Số</h2>
+<div class="card" style="max-width: 380px; text-align: center;">
+    <p style="color:#666; margin-bottom: 24px;">Chọn chức năng bên dưới để bắt đầu</p>
+    <a href="{% url 'dataset' %}"  class="btn" style="margin-bottom:12px;">📋 Xem Dataset</a>
+    <a href="{% url 'upload' %}"   class="btn" style="margin-bottom:12px;">⬆️ Upload CSV Mới</a>
+    <a href="{% url 'train' %}"    class="btn" style="margin-bottom:12px;">🤖 Train Model</a>
+    <a href="{% url 'predict' %}"  class="btn">🔮 Dự Đoán</a>
+</div>
+{% endblock %}

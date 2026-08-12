@@ -1,0 +1,35 @@
+{% extends "predictapp/base.html" %}
+
+{% block title %}Dự Đoán — Score Advisor{% endblock %}
+
+{% block content %}
+<h2>🔮 Dự Đoán Điểm Số</h2>
+<div class="card">
+
+    {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+    {% endif %}
+
+    {% if features %}
+        <form method="POST" action="{% url 'predict' %}">
+            {% csrf_token %}
+            {% for f in features %}
+                <label style="display:block; margin-bottom:4px; background:none; padding:0; font-size:13px; color:#666;">{{ f }}</label>
+                <input type="number" step="any" name="{{ f }}" placeholder="Nhập {{ f }}" required>
+            {% endfor %}
+            <button type="submit" class="btn" style="margin-top:8px;">Dự đoán</button>
+        </form>
+    {% else %}
+        <div class="alert alert-info">
+            Bạn chưa train model. <a href="{% url 'train' %}" style="color:#0c5460; font-weight:bold;">👉 Train ngay</a>
+        </div>
+    {% endif %}
+
+    {% if result is not None %}
+        <div class="result-box">
+            🎯 Kết quả dự đoán <strong>{{ target }}</strong>: <strong>{{ result }}</strong>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

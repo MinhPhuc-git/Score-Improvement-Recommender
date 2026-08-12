@@ -1,0 +1,46 @@
+{% extends "predictapp/base.html" %}
+
+{% block title %}Train Model — Score Advisor{% endblock %}
+
+{% block content %}
+<h2>🤖 Train Model</h2>
+<div class="card" style="max-width: 520px;">
+
+    {% if result %}
+        <div class="alert alert-info">{{ result }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <h3>Chọn Features (đầu vào):</h3>
+        <div class="checkbox-group" style="margin: 12px 0 20px;">
+            <label><input type="checkbox" name="features" value="absence_days"> absence_days</label>
+            <label><input type="checkbox" name="features" value="weekly_self_study_hours"> weekly_self_study_hours</label>
+            <label><input type="checkbox" name="features" value="math_score"> math_score</label>
+            <label><input type="checkbox" name="features" value="history_score"> history_score</label>
+            <label><input type="checkbox" name="features" value="physics_score"> physics_score</label>
+            <label><input type="checkbox" name="features" value="chemistry_score"> chemistry_score</label>
+            <label><input type="checkbox" name="features" value="biology_score"> biology_score</label>
+            <label><input type="checkbox" name="features" value="english_score"> english_score</label>
+            <label><input type="checkbox" name="features" value="geography_score"> geography_score</label>
+            <label><input type="checkbox" name="features" value="conduct"> conduct</label>
+        </div>
+
+        <h3>Chọn Target (đầu ra cần dự đoán):</h3>
+        <select name="target" style="margin: 12px 0 20px;">
+            <option value="absence_days">absence_days</option>
+            <option value="weekly_self_study_hours">weekly_self_study_hours</option>
+            <option value="math_score">math_score</option>
+            <option value="history_score">history_score</option>
+            <option value="physics_score">physics_score</option>
+            <option value="chemistry_score">chemistry_score</option>
+            <option value="biology_score">biology_score</option>
+            <option value="english_score">english_score</option>
+            <option value="geography_score">geography_score</option>
+        </select>
+
+        <button type="submit" class="btn">🚀 Bắt đầu Train</button>
+    </form>
+</div>
+{% endblock %}

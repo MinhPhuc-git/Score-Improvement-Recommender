@@ -1,0 +1,43 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# ─── Django ───────────────────────────────────────────────────────────────────
+*.log
+local_settings.py
+**/db.sqlite3
+
+# ─── Dữ liệu & Model & Reports — KHÔNG PUSH ───────────────────────────────────
+**/data/*.csv
+**/data/a.csv
+**/data/a_converted.csv
+**/models_trained/*.joblib
+reports/
+
+# ─── C# Build Output — KHÔNG PUSH ────────────────────────────────────────────
+**/bin/
+**/obj/
+**/.vs/
+*.exe
+*.pdb
+*.user
+*.suo
+
+# ─── Environment & Secrets ────────────────────────────────────────────────────
+.env
+.env.*
+*.secret
+
+# ─── IDE / Editor ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
